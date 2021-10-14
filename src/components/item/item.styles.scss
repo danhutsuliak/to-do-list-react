@@ -1,0 +1,21 @@
+.item {
+  margin: 20px 0;
+  padding-right: 30px;
+
+  input {
+    margin-right: 8px;
+  }
+
+  button {
+    right: 14.2%;
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: rgb(202, 58, 58);
+  }
+
+  .checked {
+    text-decoration: line-through;
+  }
+}

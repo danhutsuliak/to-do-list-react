@@ -5,11 +5,15 @@ import Item from "../item/item.component";
 import "./item-container.styles.scss";
 
 const ItemContainer = ({ tasks }) => {
+  const noTasksText =
+    "Your To Do List is empty. Make a task by clicking the button below!";
   return (
     <div className="item-container">
-      {tasks.map((task) => (
-        <Item key={task.id} text={task.text} />
-      ))}
+      {!tasks.length
+        ? noTasksText
+        : tasks.map((task) => (
+            <Item key={task.id} text={task.text} taskId={task.id} />
+          ))}
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import { ActionTypes } from "./actiontypes";
+import { getTasksFromlocalStorage } from "./utils";
 
 const INITIAL_STATE = {
-  tasks: [{ id: 0, text: "Task 1" }, { id: 1, text: "Task 2" }, { id: 2, text: "Task 3" }]
+  tasks: [...getTasksFromlocalStorage()]
 };
 
 const toDoReducer = (state = INITIAL_STATE, action) => {

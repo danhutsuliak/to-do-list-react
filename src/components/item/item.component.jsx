@@ -15,6 +15,8 @@ const Item = ({ text, deleteTask, taskId }) => {
       id: taskId,
       text: text,
     };
+
+    localStorage.removeItem(task.id);
     deleteTask(task);
   };
 

@@ -7,16 +7,23 @@ import "./add-item-form.styles.scss";
 const AddItemForm = ({ addTask, tasks }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
+    let id = localStorage.length;
 
-    for (let i = 0; i <= tasks.length; i++) {
-      const task = {
-        id: !tasks[i] ? i : tasks.length,
-        text: event.target.firstChild.value,
-      };
-
-      addTask(task);
-      break;
+    for (let i = 0; i <= localStorage.length; i++) {
+      if (!localStorage[i]) {
+        id = i;
+        break;
+      }
     }
+
+    const task = {
+      id: id,
+      text: event.target.firstChild.value,
+    };
+
+    console.log(localStorage);
+    localStorage.setItem(task.id, task.text);
+    addTask(task);
   };
 
   return (

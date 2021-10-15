@@ -1,13 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import { ReactComponent as Cross } from "../../assets/cross.svg";
-import { deleteTask } from "../../redux/actions";
-import "./item.styles.scss";
+import { ReactComponent as Cross } from '../../assets/cross.svg';
+import { deleteTask } from '../../redux/actions';
+import './task.styles.scss';
 
-const Item = ({ text, deleteTask, taskId }) => {
+const Task = ({ text, deleteTask, taskId }) => {
   const handleChange = (event) => {
-    event.target.parentNode.children[1].classList.toggle("checked");
+    event.target.parentNode.children[1].classList.toggle('checked');
   };
 
   const handleClick = () => {
@@ -21,7 +21,7 @@ const Item = ({ text, deleteTask, taskId }) => {
   };
 
   return (
-    <div className="item">
+    <div className="task">
       <input type="checkbox" onChange={handleChange} />
       <span className="task-text">{text}</span>
       <button onClick={handleClick}>
@@ -35,4 +35,4 @@ const mapDispatchToProps = (dispatch) => ({
   deleteTask: (task) => dispatch(deleteTask(task)),
 });
 
-export default connect(null, mapDispatchToProps)(Item);
+export default connect(null, mapDispatchToProps)(Task);

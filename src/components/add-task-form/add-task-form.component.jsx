@@ -1,12 +1,18 @@
-import React from "react";
-import { addTask } from "../../redux/actions";
-import { connect } from "react-redux";
+import React from 'react';
+import { addTask } from '../../redux/actions';
+import { connect } from 'react-redux';
 
-import "./add-item-form.styles.scss";
+import './add-task-form.styles.scss';
 
-const AddItemForm = ({ addTask, tasks }) => {
+const AddTaskForm = ({ addTask }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
+    const formInputValue = event.target.firstChild.value;
+
+    if (!formInputValue) {
+      return;
+    }
+
     let id = localStorage.length;
 
     for (let i = 0; i <= localStorage.length; i++) {
@@ -18,7 +24,7 @@ const AddItemForm = ({ addTask, tasks }) => {
 
     const task = {
       id: id,
-      text: event.target.firstChild.value,
+      text: formInputValue,
     };
 
     console.log(localStorage);
@@ -42,4 +48,4 @@ const mapDispatchToProps = (dispatch) => ({
   addTask: (task) => dispatch(addTask(task)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddItemForm);
+export default connect(mapStateToProps, mapDispatchToProps)(AddTaskForm);

@@ -9,8 +9,8 @@ class App extends React.Component {
     return (
       <div className="App" >
         <h1>To Do List</h1>
-        <TaskList />
         <AddTaskForm />
+        <TaskList />
       </div>
     );
   }

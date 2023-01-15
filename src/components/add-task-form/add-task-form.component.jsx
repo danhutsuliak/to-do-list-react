@@ -7,8 +7,13 @@ import './add-task-form.styles.scss';
 const AddTaskForm = ({ addTask }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // ochen ploxo
+    // napishi cherez use state
     const formInputValue = event.target.firstChild.value;
 
+    event.target.firstChild.value = '';
+    
     if (!formInputValue) {
       return;
     }
@@ -34,7 +39,7 @@ const AddTaskForm = ({ addTask }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="task" placeholder="New task" />
+      <input type="text" name="task" placeholder="New task" autoFocus autoComplete='off' />
       <button type="submit">Add</button>
     </form>
   );
